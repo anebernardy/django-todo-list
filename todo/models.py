@@ -4,7 +4,7 @@ from django.db import models
 
 class Todo(models.Model):
     title = models.CharField(
-        verbose_name='Título', 
+        verbose_name="Título", 
         max_length=100, 
         null=False, 
         blank=False,
@@ -14,8 +14,8 @@ class Todo(models.Model):
         null=False, 
         blank=False,
     )
-    deadLine = models.DateField(
-        verbose_name='Data de entrega', 
+    deadline = models.DateField(
+        verbose_name="Data de entrega", 
         null=False, 
         blank=False,
     )
@@ -24,7 +24,7 @@ class Todo(models.Model):
     )
 
     class Meta:
-        ordering = ['deadLine']
+        ordering = ["deadline"]
 
     def mark_as_completed(self):
         if self.finished_at is None:

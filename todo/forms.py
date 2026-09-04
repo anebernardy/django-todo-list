@@ -1,5 +1,5 @@
-from django import forms
 from django.utils import timezone
+from django import forms
 
 from .models import Todo
 
@@ -7,9 +7,9 @@ from .models import Todo
 class TodoForm(forms.ModelForm):
     class Meta:
         model = Todo
-        fields = ["title", "deadLine"]
+        fields = ["title", "deadline"]
         widgets = {
-            "deadLine": forms.DateInput(
+            "deadline": forms.DateInput(
                 attrs={
                     "type": "date",
                 }
@@ -20,15 +20,15 @@ class TodoForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         if not self.instance.pk:
-            self.fields["deadLine"].widget.attrs["min"] = (
+            self.fields["deadline"].widget.attrs["min"] = (
                 timezone.localdate().isoformat()
             )
 
-    def clean_deadLine(self):
-        deadline = self.cleaned_data["deadLine"]
+    def clean_deadline(self):
+        deadline = self.cleaned_data["deadline"]
         today = timezone.localdate()
 
-        if self.instance.pk and deadline == self.instance.deadLine:
+        if self.instance.pk and deadline == self.instance.deadline:
             return deadline
 
         if deadline < today:
