@@ -29,14 +29,22 @@
                             <td>{{ todo.finished_at|default:"-" }}</td>
                             <td>
                                 <div class="d-flex gap-2">
-                                    <a href="{% url 'todo_complete' pk=todo.pk %}" 
-                                        class="btn btn-orange btn-sm {% if todo.finished_at %}disabled{% endif %}">
-                                        Concluir
-                                    </a>
+                                    <form method="POST" action="{% url 'todo_complete' pk=todo.pk %}">
+                                        {% csrf_token %}
+                                        <button
+                                            type="submit" 
+                                            class="btn btn-orange btn-sm"
+                                            {% if todo.finished_at %}disabled{% endif %}>
+                                            Concluir
+                                        </button>
+                                    </form>
+
                                     <a href="{% url 'todo_update' pk=todo.pk %}" 
-                                        class="btn btn-outline-orange btn-sm {% if todo.finished_at %}disabled{% endif %}">
+                                        class="btn btn-outline-orange btn-sm 
+                                        {% if todo.finished_at %}disabled{% endif %}">
                                         Editar
                                     </a>
+
                                     <a href="{% url 'todo_delete' pk=todo.pk %}" 
                                         class="btn btn-danger btn-sm">
                                         Excluir

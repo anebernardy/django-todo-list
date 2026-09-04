@@ -24,8 +24,7 @@ class TodoDeleteView(DeleteView):
     success_url = reverse_lazy('todo_list')
 
 class TodoCompleteView(View):
-    def get(self, request, pk):
+    def post(self, request, pk):
         todo = get_object_or_404(Todo, pk=pk)
         todo.mark_as_completed()
         return redirect('todo_list')
-
