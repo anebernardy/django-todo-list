@@ -19,6 +19,9 @@ class TodoUpdateView(UpdateView):
     form_class = TodoForm
     success_url = reverse_lazy('todo_list')
 
+    def get_queryset(self):
+        return Todo.objects.filter(finished_at__isnull=True)
+
 class TodoDeleteView(DeleteView):
     model = Todo
     success_url = reverse_lazy('todo_list')
