@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block page_title %}
     Excluir
@@ -6,11 +6,20 @@
 
 {% block content %}
     <h1>Excluir tarefa</h1>
-    <p>Tem certeza que deseja excluir a tarefa <strong>{{ todo.title }}</strong>?</p>
+    <p>
+        Tem certeza que deseja excluir a tarefa 
+        <strong>{{ todo.title }}</strong>?
+    </p>
 
-    <form method="POST">
+    <form method="post">
         {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Excluir</button>
-        <a href="{% url 'todo_list' %}" class="btn btn-secondary">Cancelar</a>
+
+        <button type="submit" class="btn btn-danger">
+            Excluir
+        </button>
+
+        <a href="{% url 'todo_list' %}" class="btn btn-secondary">
+            Cancelar
+        </a>
     </form>
 {% endblock content %}

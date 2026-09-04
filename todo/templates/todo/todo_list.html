@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
-{% block page_title %} Minha lista {% endblock page_title %}
+{% block page_title %} 
+    Minha lista 
+{% endblock page_title %}
 
 {% block content %}
-
     <h1>Minha lista</h1>
 
     {% if todo_list %}
@@ -19,6 +20,7 @@
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     {% for todo in todo_list %}
                         <tr>
@@ -27,10 +29,14 @@
                             <td>{{ todo.created_at }}</td>
                             <td>{{ todo.deadLine }}</td>
                             <td>{{ todo.finished_at|default:"-" }}</td>
+                            
                             <td>
                                 <div class="d-flex gap-2">
-                                    <form method="POST" action="{% url 'todo_complete' pk=todo.pk %}">
+                                    <form 
+                                        method="post" 
+                                        action="{% url 'todo_complete' pk=todo.pk %}">
                                         {% csrf_token %}
+
                                         <button
                                             type="submit" 
                                             class="btn btn-orange btn-sm"
@@ -40,19 +46,22 @@
                                     </form>
 
                                     {% if not todo.finished_at %}
-                                        <a href="{% url 'todo_update' pk=todo.pk %}"
-                                        class="btn btn-outline-orange btn-sm">
+                                        <a 
+                                            href="{% url 'todo_update' pk=todo.pk %}"
+                                            class="btn btn-outline-orange btn-sm">
                                             Editar
                                         </a>
                                     {% else %}
-                                        <button type="button"
-                                                class="btn btn-outline-orange btn-sm"
-                                                disabled>
+                                        <button 
+                                            type="button"
+                                            class="btn btn-outline-orange btn-sm"
+                                            disabled>
                                             Editar
                                         </button>
                                     {% endif %}
 
-                                    <a href="{% url 'todo_delete' pk=todo.pk %}" 
+                                    <a 
+                                        href="{% url 'todo_delete' pk=todo.pk %}" 
                                         class="btn btn-danger btn-sm">
                                         Excluir
                                     </a>
@@ -67,6 +76,8 @@
         <p>Não há tarefas cadastradas</p>
     {% endif %}
 
-    <a href="{% url 'todo_create' %}" class='btn btn-orange'>Nova tarefa</a>
+    <a href="{% url 'todo_create' %}" class="btn btn-orange">
+        Nova tarefa
+    </a>
 
 {% endblock content %}
