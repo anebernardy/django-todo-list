@@ -7,7 +7,7 @@
     {% else %}
         Criar
     {% endif %}
-{% endblock page_title%}
+{% endblock page_title %}
 
 {% block content %}
     {% if todo.pk %}
@@ -15,14 +15,18 @@
     {% else %}
         <h1>Nova tarefa</h1>
     {% endif %}
+    
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                {% csrf_token %}
 
-    <form method="post">
-        {% csrf_token %}
+                {{ form|crispy }}
 
-        {{ form|crispy }}
-
-        <button type="submit" class="btn btn-orange">
-            Salvar
-        </button>
-    </form>
+                <button type="submit" class="btn btn-orange">
+                    Salvar
+                </button>
+            </form>
+        </div>
+    </div>
 {% endblock content %}

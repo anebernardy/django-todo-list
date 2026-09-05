@@ -2,10 +2,10 @@ from django.contrib import admin
 from django.urls import path
 
 from todo.views import (
-    TodoListView, 
-    TodoCreateView, 
-    TodoUpdateView, 
-    TodoDeleteView, 
+    TodoListView,
+    TodoCreateView,
+    TodoUpdateView,
+    TodoDeleteView,
     TodoCompleteView,
 )
 
