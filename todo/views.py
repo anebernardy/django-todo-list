@@ -8,18 +8,19 @@ from .models import Todo
 
 class TodoListView(ListView):
     model = Todo
+    context_object_name = "todo_list"
 
 
 class TodoCreateView(CreateView):
     model = Todo
     form_class = TodoForm
-    success_url = reverse_lazy('todo_list')
+    success_url = reverse_lazy("todo_list")
 
 
 class TodoUpdateView(UpdateView):
     model = Todo
     form_class = TodoForm
-    success_url = reverse_lazy('todo_list')
+    success_url = reverse_lazy("todo_list")
 
     def get_queryset(self):
         return Todo.objects.filter(finished_at__isnull=True)
@@ -27,7 +28,7 @@ class TodoUpdateView(UpdateView):
 
 class TodoDeleteView(DeleteView):
     model = Todo
-    success_url = reverse_lazy('todo_list')
+    success_url = reverse_lazy("todo_list")
 
 
 class TodoCompleteView(View):
@@ -35,4 +36,4 @@ class TodoCompleteView(View):
         todo = get_object_or_404(Todo, pk=pk)
         todo.mark_as_completed()
 
-        return redirect('todo_list')
+        return redirect("todo_list")

@@ -1,5 +1,5 @@
-from django.utils import timezone
 from django.db import models
+from django.utils import timezone
 
 
 class Todo(models.Model):
@@ -20,7 +20,9 @@ class Todo(models.Model):
         blank=False,
     )
     finished_at = models.DateField(
+        verbose_name="Data de finalização",
         null=True,
+        blank=True,
     )
 
     class Meta:

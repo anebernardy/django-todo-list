@@ -1,5 +1,5 @@
-from django.utils import timezone
 from django import forms
+from django.utils import timezone
 
 from .models import Todo
 
