@@ -1,12 +1,14 @@
-<div align="center">
-
 # Django To-Do List
 [![Python](https://img.shields.io/badge/Python-3.14-blue)](https://www.python.org/) [![Django](https://img.shields.io/badge/Django-6.1-green)](https://www.djangoproject.com/)
+
 A simple task management application built with Django.
 
 
+## Requirements
 
-</div>
+- Python 3.14+
+- Git
+- pip
 
 ## Features
 
@@ -24,6 +26,7 @@ A simple task management application built with Django.
 - SQLite
 - Bootstrap 5
 - django-crispy-forms
+- crispy-bootstrap5
 
 ## Setup
 
