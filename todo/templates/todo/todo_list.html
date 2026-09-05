@@ -9,29 +9,43 @@
 
     {% if todo_list %}
         <div class="table-responsive">
-            <table class="table table-hover align-middle todo-table">
+            <table class="table table-hover align-middle todo-table w-auto">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Título</th>
-                        <th scope="col">Criado em</th>
-                        <th scope="col">Data de entrega</th>
-                        <th scope="col">Data de finalização</th>
-                        <th scope="col">Ações</th>
+                        <th scope="col" class="text-center">#</th>
+                        <th scope="col" class="text-center">Título</th>
+                        <th scope="col" class="text-center">Data de criação</th>
+                        <th scope="col" class="text-center">Data de entrega</th>
+                        <th scope="col" class="text-center">Data de finalização</th>
+                        <th scope="col" class="text-center">Ações</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     {% for todo in todo_list %}
                         <tr>
-                            <th scope="row">{{ todo.pk }}</th>
-                            <td>{{ todo.title }}</td>
-                            <td>{{ todo.created_at }}</td>
-                            <td>{{ todo.deadline }}</td>
-                            <td>{{ todo.finished_at|default:"-" }}</td>
+                            <th scope="row" class="text-center">{{ todo.pk }}</th>
+                            
+                            <td class="text-center">{{ todo.title }}</td>
+
+                            <td class="date-cell text-center">
+                                {{ todo.created_at|date:"d/m/Y - H:i" }}
+                            </td>
+
+                            <td class="date-cell text-center">
+                                {{ todo.deadline|date:"d/m/Y" }}
+                            </td>
+                            
+                            <td class="date-cell text-center"> 
+                                {% if todo.finished_at %}
+                                    {{ todo.finished_at|date:"d/m/Y" }}
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </td>
                             
                             <td>
-                                <div class="d-flex gap-2">
+                                <div class="d-flex justify-content-center gap-2">
                                     <form 
                                         method="post" 
                                         action="{% url 'todo_complete' pk=todo.pk %}">
