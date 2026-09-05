@@ -1,7 +1,7 @@
-# Django To-Do List
+# To-Do List
 [![Python](https://img.shields.io/badge/Python-3.14-blue)](https://www.python.org/) [![Django](https://img.shields.io/badge/Django-6.1-green)](https://www.djangoproject.com/)
 
-A simple task management application built with Django.
+A task management application built with Django to practice CRUD operations, forms, templates, and automated tests.
 
 
 ## Requirements
@@ -23,10 +23,8 @@ A simple task management application built with Django.
 
 - Python
 - Django
-- SQLite
-- Bootstrap 5
-- django-crispy-forms
-- crispy-bootstrap5
+- Bootstrap
+
 
 ## Setup
 
@@ -50,8 +48,12 @@ pip install -r requirements.txt
 ```
 
 4. Create the environment file:
-```bash
-cp .env.example .env
+Copy `.env.example` to `.env` and set the values for your environment.
+
+```env
+DJANGO_SECRET_KEY=your-local-secret-key
+DJANGO_DEBUG=True
+DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1
 ```
 
 5. Apply the migrations:
