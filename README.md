@@ -1,49 +1,76 @@
+<div align="center">
+
 # Django To-Do List
+[![Python](https://img.shields.io/badge/Python-3.14-blue)](https://www.python.org/) [![Django](https://img.shields.io/badge/Django-6.1-green)](https://www.djangoproject.com/)
+A simple task management application built with Django.
 
-A simple to-do list web application built with Django.
 
-## Tech Stack
+
+</div>
+
+## Features
+
+- Create, edit and delete tasks
+- Set task deadlines
+- Validate deadlines when creating tasks
+- Complete pending tasks
+- Prevent editing completed tasks
+- Use automated tests for forms and task actions
+
+## Technologies
+
 - Python
 - Django
 - SQLite
+- Bootstrap 5
+- django-crispy-forms
 
-## Installation
+## Setup
 
-1. Clone the repository
+1. Clone the repository and enter the project directory:
 ```bash
-git clone https://github.com/your-username/django-todo-list.git
+git clone https://github.com/anebernardy/django-todo-list.git
 cd django-todo-list
 ```
 
-2. Create and activate a virtual environment
+
+2. Create and activate a virtual environment:
 ```bash
+# macOS/Linux
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-3. Install dependencies
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Create a .env filed based on .env.example
+4. Create the environment file:
 ```bash
 cp .env.example .env
 ```
 
-5. Run migrations
+5. Apply the migrations:
 ```bash
 python manage.py migrate
 ```
 
-6. Start the development server
+6. Start the development server:
 ```bash
 python manage.py runserver
 ```
 
-Open:
-http://127.0.0.1:8000
+Open the application at [http://127.0.0.1:8000](http://127.0.0.1:8000/).
+
+
+## Tests
+
+Run the test suite with:
+```bash
+python manage.py test todo
+```
 
 ---
-Based on a YouTube tutorial: 
-https://www.youtube.com/watch?v=MsUL3Pgofl4&t=28s
+This project was initially based on a [YouTube tutorial](https://www.youtube.com/watch?v=MsUL3Pgofl4&t=28s).
+The application was adapted and extended with additional features, including deadline validation, task completion through POST requests, restrictions on editing completed tasks, and automated tests.

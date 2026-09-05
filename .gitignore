@@ -1,21 +1,38 @@
+# Virtual environments
 .venv/
 venv/
 env/
 
+# Python cache and compiled files
 __pycache__/
 *.py[cod]
 *$py.class
 
+# Logs and test coverage
 *.log
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Local database and user-generated files
 db.sqlite3
 media/
 staticfiles/
 
+# Environment variables
 .env
 .env.*
 !.env.example
 
+# IDE and operating system files
 .DS_Store
 .vscode/
+.idea/
 
+# Local notes
 notes.md
+
+# Type-checking and linting caches
+.mypy_cache/
+.ruff_cache/
