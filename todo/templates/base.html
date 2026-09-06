@@ -5,88 +5,18 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link 
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+      rel="stylesheet" 
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+      crossorigin="anonymous"
+    >
 
-    <style>
-
-      body {
-        font-family: Helvetica, sans-serif;
-      }
-
-      .navbar-brand {
-        font-weight: 300;
-      }
-
-      .navbar-brand span {
-        letter-spacing: 2px;
-      }
-
-      .navbar-orange {
-        background-color: #c73c00;
-      }
-
-      .btn-orange {
-        color: #fff;
-        background-color: #cb4b14;
-      }
-
-      .btn-orange:hover {
-        color: #fff;
-        background-color: #a83d0f;
-        border-color: #a83d0f;
-      }
-
-      .btn-outline-orange {
-        color: #cb4b14;
-        border-color: #cb4b14;
-      }
-
-      .btn-outline-orange:hover {
-        color: #fff;
-        background-color: #cb4b14;
-        border-color: #cb4b14;
-      }
-
-      .todo-table {
-        border-collapse: separate;
-        border-spacing: 0;
-        font-size: 0.9rem;
-      }
-
-      .todo-table thead th {
-        color: #6b2108;
-        background-color: #fff1eb;
-        border-bottom: 2px solid #cb4b14;
-        white-space: nowrap;
-      }
-
-      .todo-table tbody tr:hover {
-        background-color: #fff7f3;
-      }
-
-      .todo-table td,
-      .todo-table th {
-        padding: 0.9rem 0.75rem;
-      }
-
-      .todo-table td:last-child {
-        white-space: nowrap;
-      }
-
-      .todo-table .date-cell {
-        color: #6c757d;
-        font-size: 0.9rem;
-        white-space: nowrap;
-      }
-
-
-    </style>
-
-
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     
     <title>Lista de Tarefas | {% block page_title %} {% endblock page_title %}</title>
     
-    
+   
   </head>
   <body>
     

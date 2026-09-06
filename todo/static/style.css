@@ -1,0 +1,69 @@
+    body {
+    font-family: Helvetica, sans-serif;
+    }
+
+    .navbar-brand {
+    font-weight: 300;
+    }
+
+    .navbar-brand span {
+    letter-spacing: 2px;
+    }
+
+    .navbar-orange {
+    background-color: #c73c00;
+    }
+
+    .btn-orange {
+    color: #fff;
+    background-color: #cb4b14;
+    }
+
+    .btn-orange:hover {
+    color: #fff;
+    background-color: #a83d0f;
+    border-color: #a83d0f;
+    }
+
+    .btn-outline-orange {
+    color: #cb4b14;
+    border-color: #cb4b14;
+    }
+
+    .btn-outline-orange:hover {
+    color: #fff;
+    background-color: #cb4b14;
+    border-color: #cb4b14;
+    }
+
+    .todo-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.9rem;
+    }
+
+    .todo-table thead th {
+    color: #6b2108;
+    background-color: #fff1eb;
+    border-bottom: 2px solid #cb4b14;
+    white-space: nowrap;
+    }
+
+    .todo-table tbody tr:hover {
+    background-color: #fff7f3;
+    }
+
+    .todo-table td,
+    .todo-table th {
+    padding: 0.9rem 0.75rem;
+    }
+
+    .todo-table td:last-child {
+    white-space: nowrap;
+    }
+
+    .todo-table .date-cell {
+    color: #6c757d;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    }
