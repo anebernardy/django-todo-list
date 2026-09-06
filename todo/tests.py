@@ -94,6 +94,25 @@ class TodoCompleteTests(TestCase):
 
         self.assertEqual(todo.finished_at, today)
 
+    def test_does_not_complete_already_completed_task(self):
+        today = timezone.localdate()
+
+        todo = Todo.objects.create(
+            title="Already completed task",
+            deadline=today,
+            finished_at=today,
+        )
+
+        response = self.client.post(
+            reverse("todo_complete", args=[todo.pk])
+        )
+
+        self.assertEqual(response.status_code, 404)
+
+        todo.refresh_from_db()
+
+        self.assertEqual(todo.finished_at, today)  
+
     def test_does_not_complete_task_with_get_request(self):
         today = timezone.localdate()
 
