@@ -12,12 +12,11 @@ A task management application built with Django to practice CRUD operations, for
 
 ## Features
 
-- Create, edit and delete tasks
-- Set task deadlines
-- Validate deadlines when creating tasks
-- Complete pending tasks
-- Prevent editing completed tasks
-- Use automated tests for forms and task actions
+- Task management
+- Deadline and completion tracking
+- Form handling and validation
+- CRUD operations
+- Automated tests
 
 ## Technologies
 
@@ -48,6 +47,7 @@ pip install -r requirements.txt
 ```
 
 4. Create the environment file:
+
 Copy `.env.example` to `.env` and set the values for your environment.
 
 ```env
@@ -78,4 +78,4 @@ python manage.py test todo
 
 ---
 This project was initially based on a [YouTube tutorial](https://www.youtube.com/watch?v=MsUL3Pgofl4&t=28s).
-The application was adapted and extended with additional features, including deadline validation, task completion through POST requests, restrictions on editing completed tasks, and automated tests.
+The application was adapted and extended with additional features.
