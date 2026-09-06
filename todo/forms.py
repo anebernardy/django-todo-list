@@ -23,18 +23,3 @@ class TodoForm(forms.ModelForm):
             self.fields["deadline"].widget.attrs["min"] = (
                 timezone.localdate().isoformat()
             )
-
-    def clean_deadline(self):
-        deadline = self.cleaned_data["deadline"]
-        today = timezone.localdate()
-
-        if self.instance.pk and deadline == self.instance.deadline:
-            return deadline
-
-        if deadline < today:
-            raise forms.ValidationError(
-                "A data de entrega não pode ser no passado."
-            )
-        
-        return deadline
-    

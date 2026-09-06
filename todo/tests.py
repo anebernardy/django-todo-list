@@ -1,5 +1,6 @@
 from datetime import timedelta
 
+from django.core.exceptions import ValidationError
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
@@ -33,6 +34,18 @@ class TodoFormTests(TestCase):
         )
 
         self.assertTrue(form.is_valid())
+
+class TodoModelTests(TestCase):
+    def test_rejects_past_deadline_when_validating_model(self):
+        yesterday = timezone.localdate() - timedelta(days=1)
+
+        todo = Todo(
+            title="Overdue task",
+            deadline=yesterday,
+        )
+
+        with self.assertRaises(ValidationError):
+            todo.full_clean()
 
 
 class TodoUpdateTests(TestCase):

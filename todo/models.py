@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 
@@ -22,6 +23,27 @@ class Todo(models.Model):
 
     class Meta:
         ordering = ["deadline"]
+
+    def clean(self):
+        super().clean()
+
+        if self.deadline is None:
+            return
+
+        today = timezone.localdate()
+
+        if self.deadline < today:
+            if self.pk:
+                original_deadline = type(self).objects.get(
+                    pk=self.pk
+                ).deadline
+
+                if self.deadline == original_deadline:
+                    return
+
+            raise ValidationError({
+                "deadline": "A data de entrega não pode ser no passado."
+            })   
 
     def mark_as_completed(self):
         if self.finished_at is None:
