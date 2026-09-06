@@ -48,4 +48,4 @@ class Todo(models.Model):
     def mark_as_completed(self):
         if self.finished_at is None:
             self.finished_at = timezone.localdate()
-            self.save()
+            self.save(update_fields=["finished_at"])
