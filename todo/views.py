@@ -9,17 +9,20 @@ from .models import Todo
 class TodoListView(ListView):
     model = Todo
     context_object_name = "todo_list"
+    template_name = "todo/todo_list.html"
 
 
 class TodoCreateView(CreateView):
     model = Todo
     form_class = TodoForm
+    template_name = "todo/todo_form.html"
     success_url = reverse_lazy("todo_list")
 
 
 class TodoUpdateView(UpdateView):
     model = Todo
     form_class = TodoForm
+    template_name = "todo/todo_form.html"
     success_url = reverse_lazy("todo_list")
 
     def get_queryset(self):
@@ -28,6 +31,7 @@ class TodoUpdateView(UpdateView):
 
 class TodoDeleteView(DeleteView):
     model = Todo
+    template_name = "todo/todo_confirm_delete.html"
     success_url = reverse_lazy("todo_list")
 
 
