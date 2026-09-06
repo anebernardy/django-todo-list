@@ -27,6 +27,16 @@ class Todo(models.Model):
     def clean(self):
         super().clean()
 
+        title = (self.title or "").strip()
+
+        if not title:
+            raise ValidationError({
+                "title": "O título não pode conter apenas espaços."
+            })
+
+        self.title = title
+
+
         if self.deadline is None:
             return
 

@@ -35,6 +35,20 @@ class TodoFormTests(TestCase):
 
         self.assertTrue(form.is_valid())
 
+    def test_rejects_title_with_only_spaces(self):
+        tomorrow = timezone.localdate() + timedelta(days=1)
+
+        form = TodoForm(
+            data={
+                "title": "   ",
+                "deadline": tomorrow,
+            }
+        )
+
+        self.assertFalse(form.is_valid())
+        self.assertIn("title", form.errors)
+    
+
 class TodoModelTests(TestCase):
     def test_rejects_past_deadline_when_validating_model(self):
         yesterday = timezone.localdate() - timedelta(days=1)
@@ -47,6 +61,16 @@ class TodoModelTests(TestCase):
         with self.assertRaises(ValidationError):
             todo.full_clean()
 
+    def test_rejects_title_with_only_spaces_when_validating_model(self):
+        tomorrow = timezone.localdate() + timedelta(days=1)
+
+        todo = Todo(
+            title="   ",
+            deadline=tomorrow,
+        )
+
+        with self.assertRaises(ValidationError):
+            todo.full_clean()
 
 class TodoUpdateTests(TestCase):
     def test_allows_editing_task_while_keeping_past_deadline(self):
