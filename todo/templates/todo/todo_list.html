@@ -54,30 +54,38 @@
                                         <button
                                             type="submit" 
                                             class="btn btn-orange btn-sm"
+                                            aria-label="Concluir tarefa"
+                                            title="Concluir tarefa"
                                             {% if todo.finished_at %}disabled{% endif %}>
-                                            Concluir
+                                            <i class="bi bi-check-lg" aria-hidden="true"></i>
+                                            
                                         </button>
                                     </form>
 
                                     {% if not todo.finished_at %}
                                         <a 
                                             href="{% url 'todo_update' pk=todo.pk %}"
-                                            class="btn btn-outline-orange btn-sm">
-                                            Editar
+                                            class="btn btn-outline-orange btn-sm"
+                                            aria-label="Editar tarefa"
+                                            title="Editar tarefa">
+                                            <i class="bi bi-pencil" aria-hidden="true"></i>
                                         </a>
                                     {% else %}
                                         <button 
                                             type="button"
                                             class="btn btn-outline-orange btn-sm"
+                                            aria-label="Editar tarefa indisponível"
                                             disabled>
-                                            Editar
+                                            <i class="bi bi-pencil" aria-hidden="true"></i>
                                         </button>
                                     {% endif %}
 
                                     <a 
                                         href="{% url 'todo_delete' pk=todo.pk %}" 
-                                        class="btn btn-danger btn-sm">
-                                        Excluir
+                                        class="btn btn-danger btn-sm ms-2"
+                                        aria-label="Excluir tarefa"
+                                        title="Excluir tarefa">
+                                        <i class="bi bi-trash" aria-hidden="true"></i>
                                     </a>
                                 </div>
                             </td>
